@@ -14,18 +14,18 @@ DELTA = {
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
-def gameover(screen: pg.Surface) -> None:   
-        go_img = pg.Surface((1100,650))
+def gameover(screen: pg.Surface) -> None:#追加機能1
+        go_img = pg.Surface((1100,650))#矩形作成
         pg.draw.rect(go_img,(0,0,0),pg.Rect(0,0,1100,650))
-        go_img.set_alpha(128)
+        go_img.set_alpha(70)#透明度設定
 
-        fonto = pg.font.Font(None,80)
+        fonto = pg.font.Font(None,80)#Game Overの作成
         txt = fonto.render("Game Over",True,(255,255,255))
         screen.blit(txt,[440,280])
-        kt_img = pg.transform.rotozoom(pg.image.load("fig/8.png"),0, 0.9)
+        kt_img = pg.transform.rotozoom(pg.image.load("fig/8.png"),0, 0.9)#こうかとん画像のblit
         screen.blit(kt_img,[380,280])
         screen.blit(kt_img,[780,280])
-        screen.blit(go_img,[0,0])
+        screen.blit(go_img,[0,0])#矩形をscreen Surfaceにblit
         pg.display.update()
         time.sleep(5)
         return None
