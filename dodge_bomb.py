@@ -18,7 +18,6 @@ def gameover(screen: pg.Surface) -> None:
         go_img = pg.Surface((1100,650))
         pg.draw.rect(go_img,(0,0,0),pg.Rect(0,0,1100,650))
         go_img.set_alpha(128)
-        screen.blit(go_img,[0,0])
 
         fonto = pg.font.Font(None,80)
         txt = fonto.render("Game Over",True,(255,255,255))
@@ -26,6 +25,7 @@ def gameover(screen: pg.Surface) -> None:
         kt_img = pg.transform.rotozoom(pg.image.load("fig/8.png"),0, 0.9)
         screen.blit(kt_img,[380,280])
         screen.blit(kt_img,[780,280])
+        screen.blit(go_img,[0,0])
         pg.display.update()
         time.sleep(5)
         return None
